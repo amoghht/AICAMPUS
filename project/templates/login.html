@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}
+LOGIN PAGE
+{% endblock %}
+
+
+{% block content %}
+
+    <style>
+
+
+     h1,a
+     {
+     color:white
+     }
+
+   </style>
+<div class="row">
+    <div class="col-6">
+
+        <body class="text-center">
+
+      <div class="container">
+            <h1 class="h3 mb-3 font-weight-normal">
+                Please login using your credentials
+            </h1>
+            <br>
+                <form method="POST" class="form-signin" style="color:white">
+
+                {{form.hidden_tag() }}     <!-- to prevent CSRF attacks ie cross site request forgery -->
+
+                {{ form.username.label() }}
+                {{ form.username(class="form-control",placeholder="user name") }}
+
+
+                {{ form.password.label() }}
+                {{ form.password(class="form-control",placeholder="password") }}
+
+                  <br>
+                    <div class="checkbox mb-3">
+                        <h6>Do Not Have An Account? </h6>
+                        <a class="btn btn-sm btn-secondary" href="{{ url_for('users.register_page') }}">Register</a>
+                    </div>
+                 {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+                </form>
+      </div>
+
+</body>
+    </div>
+
+    <div class="col-4">
+
+                <h1 class="h3 mb-3 font-weight-normal">
+                Please login using face
+                </h1>
+
+                <h1 class="lead font-weight-normal">click on below button to start face recognition </h1>
+                <br>
+
+                     <a class="nav-link" href="{{ url_for('users.face_login2') }}">START method1</a>
+                  <a class="nav-link" href="{{ url_for('users.face_login3') }}">START method2</a>
+
+
+
+
+
+        </body>
+
+
+
+
+    </div>
+
+
+</div>
+
+{% endblock %}

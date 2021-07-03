@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}
+events page
+{% endblock %}
+
+
+{% block content %}
+
+            <style>
+
+                    h1,h5,p
+                    {
+                    color:white
+                    }
+
+                    h4,h6
+                    {
+                    color:white
+                    }
+
+
+
+            </style>
+
+
+
+
+
+<body class="text-center">
+
+        <h1>EVENT TITLE: {{event.eventname}}</h1>
+        <img src=../static/images/events/{{event.image_file}} width="25%" height="50%">
+        <div class="col-md-4 p-lg-4 mx-auto my-5 text-center">
+            <table class="table table-bordered ">
+                <tbody>
+                    <tr>
+                        <th scope="row"><h5>CATEGORY </h5></th>
+                        <th scope="row"><h5> {{event.eventcategory}}</h5></th>
+                    </tr>
+
+                    <tr>
+                        <th scope="row"><h5>DATE</h5></th>
+                        <th scope="row"><h5> {{event.event_date}}</h5></th>
+                    </tr>
+
+                     <tr>
+                        <th scope="row"><h5>EVENT DESCRIPTION </h5></th>
+                        <th scope="row"><p> {{event.event_description }}</p></th>
+                    </tr>
+
+                    <tr>
+                        <th scope="row"><h5>CATEGORY </h5></th>
+                        <th scope="row"><h5> {{event.eventcategory}}</h5></th>
+                    </tr>
+                </tbody>
+                    <tr>
+                        <th scope="row"><h5>Registration Link </h5></th>
+                        <th scope="row"><a href='{{ event.register_link }}' class="btn btn-success">REGISTER  </a></th>
+                    </tr>
+            </table>
+                         <a href="{{ url_for('events_bp.event_page') }}" class="btn btn-secondary">GO BACK </a>
+        </div>
+
+</body>
+{% endblock %}
+
+
+
+

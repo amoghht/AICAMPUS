@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}
+modify  events
+{% endblock %}
+
+
+{% block content %}
+            <style>
+
+                    h1,p
+                    {
+                    color:white
+                    }
+
+
+
+            </style>
+
+
+
+
+
+<body class="text-center">
+      <div class="container">
+            <h1 class="h3 mb-3 font-weight-normal">
+                MODIFY  EVENT : {{ event.eventname }}
+            </h1>
+            <br>
+                <form method="POST" class="form-register" style="color:white" enctype="multipart/form-data">
+
+                {{form.hidden_tag() }}     <!-- to prevent CSRF attacks ie cross site request forgery -->
+
+                {{ form.eventname.label() }}
+                {{ form.eventname(class="form-control",placeholder="event name") }}
+
+                {{ form.eventcategory.label() }}
+                {{ form.eventcategory(class="form-control",placeholder="event category") }}
+
+                <br>
+                {{ form.event_date.label() }}
+                {{ form.event_date(type='date-local' ,class='date',placeholder="event date (YYYY-MM-DD)") }}
+                <br>
+                    <br>
+
+                {{ form.event_description.label() }}
+                {{ form.event_description(class="form-control",placeholder="event description") }}
+
+                    <br>
+                {{ form.image_file.label() }}
+                {{ form.image_file(class="form-control") }}
+                    <br>
+                {% if form.image_file.errors %}
+                         {% for errors in form.image_file.errors %}
+                                <span>{{ errors }}</span>
+                         {% endfor %}
+                    {% endif %}
+
+                {{ form.register_link.label() }}
+                {{ form.register_link(class="form-control",placeholder="registration_link") }}
+                <br>
+
+
+                 {{ form.submit(class="btn btn-lg btn-block btn-primary",placeholder="modify") }}
+                </form>
+
+
+      </div>
+</body>
+
+
+
+
+
+        <div class="product-device box-shadow d-none d-md-block"></div>
+        <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+
+
+{% endblock %}

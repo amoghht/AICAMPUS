@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}
+REGISTER PAGE
+{% endblock %}
+
+
+{% block content %}
+
+    <style>
+
+
+     h1
+     {
+     color:white
+     }
+
+   </style>
+
+<body class="text-center">
+      <div class="container">
+            <h1 class="h3 mb-3 font-weight-normal">
+                Please Create Your Account
+            </h1>
+            <br>
+                <form method="POST" class="form-register" style="color:white">
+
+                {{form.hidden_tag() }}     <!-- to prevent CSRF attacks ie cross site request forgery -->
+
+                {{ form.username.label() }}
+                {{ form.username(class="form-control",placeholder="user name") }}
+
+                {{ form.email_address.label() }}
+                {{ form.email_address(class="form-control",placeholder="email_address") }}
+
+
+                {{ form.phone_number.label() }}
+                {{ form.phone_number(class="form-control",placeholder="phone_number") }}
+
+
+                {{ form.password1.label() }}
+                {{ form.password1(class="form-control",placeholder="password") }}
+
+                {{ form.password2.label() }}
+                {{ form.password2(class="form-control",placeholder="confirm password") }}
+
+
+                    <br>
+                    <div class="checkbox mb-3">
+                        <h6>Already Have An Account? </h6>
+                        <a class="btn btn-sm btn-secondary" href="{{ url_for('users.login_page') }}">Login</a>
+                    </div>
+                 {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+                </form>
+
+
+      </div>
+</body>
+{% endblock %}

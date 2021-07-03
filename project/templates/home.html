@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+HOME PAGE
+{% endblock %}
+
+
+{% block content %}
+            <style>
+
+                    h1,p,h5
+                    {
+                    color:white
+                    }
+            </style>
+
+
+        <div class="col-md-7 p-lg-4 mx-auto my-5 text-center">
+            <h1 class="display-4 font-weight-normal">AI CAMPUS</h1>
+            <h5>  A Face Recognition Based Recommendation For Campus Events</h5>
+
+            <br>
+
+            {% if current_user.is_authenticated %}
+            <p class="lead font-weight-normal">Start getting event recommendation by clicking below</p>
+            <a class="btn btn-outline-light" href="{{ url_for('events_bp.event_page') }}">Get Started</a>
+            <br>
+            <br>
+            <p class="lead font-weight-normal">want to use face recognition features?? click on "Register Face"</p>
+            <a class="btn btn-outline-light" href="{{ url_for('users.face_register') }}">Register Face </a>
+            {% endif %}
+
+
+
+
+        </div>
+        <div class="product-device box-shadow d-none d-md-block"></div>
+        <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+
+
+{% endblock %}

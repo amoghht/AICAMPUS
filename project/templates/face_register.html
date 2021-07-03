@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+HOME PAGE
+{% endblock %}
+
+
+{% block content %}
+
+
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-dark" style="color:white">
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+
+            <p class="lead font-weight-normal">Register your face for personalized  recommendation </p>
+
+            <form action = "/face_register" method = "POST">
+                    <input type="submit" value="register_face" name="register face" class="btn btn-success">
+
+            </form>
+
+            {% if start_face_register=='true' %}
+            <img src="{{ url_for('users.register_face',name=current_user.username) }}" >
+            {% endif %}
+
+            <h3>want to skip face registration??</h3>
+            <p>Click on Get Started with recommendation directly without registering face</p>
+            <a class="btn btn-primary" href="{{ url_for('events_bp.event_page') }}">Get Started with recommendation</a>
+            <br>
+        </div>
+        <div class="product-device box-shadow d-none d-md-block"></div>
+        <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block title %}
+my events
+{% endblock %}
+
+
+{% block content %}
+            <style>
+
+                    h1,p,h5,h4,h6
+                    {
+                    color:white
+                    }
+
+
+
+            </style>
+<div class="text-center">
+        <h1>  MY EVENTS </h1>
+
+    <h5>click on "Add Event" to add new events </h5> <a class="btn btn-primary btn-lg mt-1 mb-1" href="{{ url_for('events_bp.add_events') }}"> Add Event</a>
+    <h5>You can also modify or delete events added by you </h5>
+</div>
+
+<div class="row">
+        {% for event in my_events_list %}
+                <div class="col-4">
+                    <div class="card " style="width: 22rem ;">
+
+
+                    <div class="card-body" style="background-color:black";>
+                        <h4 class="card-title">{{ event.eventname }}</h4>
+                          <h6> category : {{ event.eventcategory }}</h6>
+                        <h6>event date: {{ event.event_date }} </h6>
+                        <h6>posted by: {{current_user.username}}</h6>
+                        <h6> event id :{{ event.event_id }} </h6>
+                        <a href="{{ url_for('events_bp.modify_event',event_id= event.event_id) }}" class="btn btn-primary  mt-1 mb-1">update event</a>
+
+                        <button type="'button" class="btn btn-danger btn1" data-toggle="modal" data-target="#deleteModal-{{ event.event_id }}">Delete event</button>
+
+                    </div>
+                    </div>
+                </div>
+
+        <!-- Modal -->
+<div class="modal fade" id="deleteModal-{{ event.event_id }}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="deleteModalLabel">Are you sure you want to delete event named {{event.eventname}} ?</h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          event details your trying to delete:
+          <h3 id='modaleventname'>event name : {{ event.eventname }}</h3>
+          <h6 id='modal-event-category'> category : {{ event.eventcategory }}</h6>
+          <h6 id='modal-event-id'> event id :{{ event.event_id }} </h6>
+
+
+        <style>
+
+                    #deleteModalLabel
+                    {
+                    color:red
+                    }
+                    #modaleventname,#modal-event-category,#modal-event-id
+                    {
+                    color:black
+                    }
+
+         </style>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <form action="{{url_for('events_bp.delete_event',event_id=event.event_id)}}" method="POST">
+            <input class='btn btn-danger'  type="submit" value="delete">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+        {% endfor%}
+
+
+
+
+
+        </div>
+        <div class="product-device box-shadow d-none d-md-block"></div>
+        <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+
+</div>
+
+
+{% endblock %}

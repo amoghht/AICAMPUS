@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% block title %}
+ABOUT DEVELOPERS
+{% endblock %}
+{% block content %}
+<style>
+    .container
+    {
+      position: relative;
+      width: 50%;
+    }
+   h5,h6,h1
+   {
+   color:white
+   }
+   h4
+   {
+   color:blue
+   }
+   h7
+   {
+   color:pink
+   }
+
+   li,ul
+   {
+   color:black
+   }
+   img {
+      max-width: 100%;
+      max-height: 250px
+    }
+    .topmiddle {
+  position: absolute;
+  top: 215px;
+  left: 80px;
+  font-size: 25px;
+  color:white
+    }
+
+
+</style>
+<body class="text-center">
+    <h1>DEVELOPERS</h1>
+    <br>
+    <div class="row">
+        <div class="col" >
+                <div class="card text-center" style="width: 18rem;">
+                   <img src={{url_for('static',filename='images/amogh.jpg')}}  alt="Avatar" class="image" style="width:100%">
+                        <div class="card-body" style="background-color:black";>
+                        <h4 class="card-title">AMOGH HT</h4>
+                           <h7 class="text-left">contibution to project:</h7>
+                        <h6 class="text-left"> 1]project achitecture and design</h6>
+                        <h6 class="text-left"> 2]face recognition  </h6>
+                        <h6 class="text-left"> 3]flask,API,deployment </h6>
+                            <a  href="https://github.com/amoghht" class="btn btn-primary">github</a>
+                            <a href="https://www.linkedin.com/in/amogh-ht-35735a153/" class="btn btn-primary">linkedin</a>
+                        </div>
+                </div>
+           </div>
+
+           <div class="col" >
+                <div class="card text-center" style="width: 18rem;">
+                   <img src={{url_for('static',filename='images/brunda.jpg')}}  alt="Avatar" class="image" style="width:100%">
+                        <div class="card-body" style="background-color:black";>
+                        <h4 class="card-title">BRUNDA SATHISH</h4>
+                           <h7 class="text-left">contibution to project:</h7>
+                        <h6 class="text-left"> 1]recommendation systems</h6>
+                        <h6 class="text-left"> 2]OCR  </h6>
+                        <h6 class="text-left"> 3]... </h6>
+                            <a  href="#" class="btn btn-primary">github</a>
+                            <a href="#" class="btn btn-primary">linkedin</a>
+                        </div>
+                </div>
+           </div>
+
+            <div class="col" >
+                    <div class="card text-center" style="width: 18rem;">
+                   <img src={{url_for('static',filename='images/karan.jpg')}}  alt="Avatar" class="image" style="width:100%">
+                        <div class="card-body" style="background-color:black";>
+                        <h4 class="card-title">KARAN UK</h4>
+                           <h7 class="text-left">contibution to project:</h7>
+                        <h6 class="text-left"> 1]website front end </h6>
+                        <h6 class="text-left"> 2]dockers </h6>
+                        <h6 class="text-left"> 3]... </h6>
+                            <a  href="#" class="btn btn-primary">github</a>
+                            <a href="#" class="btn btn-primary">linkedin</a>
+                        </div>
+                </div>
+               </div>
+
+
+            <div class="col" >
+                   <div class="card text-center" style="width: 18rem;">
+                   <img src={{url_for('static',filename='images/pavan.jpg')}}  alt="Avatar" class="image" style="width:100%">
+                        <div class="card-body" style="background-color:black";>
+                        <h4 class="card-title">K PAVAN</h4>
+                           <h7 class="text-left">contibution to project:</h7>
+                        <h6 class="text-left"> 1]OCR</h6>
+                        <h6 class="text-left"> 2]mysql database  </h6>
+                        <h6 class="text-left"> 3]... </h6>
+                            <a  href="#" class="btn btn-primary">github</a>
+                            <a href="#" class="btn btn-primary">linkedin</a>
+                        </div>
+                </div>
+            </div>
+</div>
+    <br>
+    <h1>PROJECT GUIDE </h1>
+    <div class="row">
+        <div class="col">
+            <div class="container" >
+
+                <div class="card " style="width: 20rem ;">
+                  <img src={{url_for('static',filename='images/alfredsir.jpg')}} class="card-img-top" alt="...">
+                  <div class="card-body" style="background-color:black";>
+                    <h4 class="card-title">ALFRED VIVEK D'SOUZA</h4>
+                      <h6> assistant professor of ECE department</h6>
+                    <h6> VVCE ,MYSORE </h6>
+                    <a href="#" class="btn btn-primary">linkedin </a>
+                  </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+{% endblock %}

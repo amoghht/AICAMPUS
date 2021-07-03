@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}
+intrests page
+{% endblock %}
+
+
+{% block content %}
+            <style>
+
+                    h1,p,form,h3
+                    {
+                    color:white
+                    }
+
+                    input.largercheckbox
+                    {
+                    width:20px;
+                    height:20px;
+                    }
+
+
+            </style>
+
+
+<h3> USER : {{ thisuser.username }}</h3>
+<br>
+  <h3> my intrests : {{ mydict[thisuser.username] }}</h3>
+<br>
+
+<h3> AVAILABLE DOMAIN AS OF NOW </h3>
+<body class="text-center">
+
+<form method="POST" action='/myintrests/{{thisuser.id}}'>
+
+    <div class="row">
+        {% for category in categories %}
+            <div class="col-4">
+                {% if category in mydict[thisuser.username] %}
+                {{category}} <input type="checkbox" class="largercheckbox" name="intrests" value={{category}} checked>
+                <br>
+                {% else %}
+                {{category}} <input type="checkbox" class="largercheckbox" name="intrests" value={{category}} >
+                <br>
+                {% endif %}
+
+            </div>
+
+
+        {% endfor %}
+        <br>
+    </div>
+        <br>
+         <input type="submit">
+
+
+
+</form>
+<br>
+<a href="{{ url_for('events_bp.event_page') }}" class="btn btn-primary btn-sm mt-1 mb-1"> BACK TO EVENTS PAGE</a>
+</body>
+
+
+
+
+
+
+{% endblock %}

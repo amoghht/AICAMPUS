@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}
+events page
+{% endblock %}
+
+
+{% block content %}
+
+            <style>
+
+                    h1,h3,h6
+                    {
+                    color:white
+                    }
+
+                    h4
+                    {
+                    color:blue
+                    }
+                    img
+                    {
+                      max-width: 100%;
+                      max-height: 200px
+                    }
+
+            </style>
+
+
+<div class="text-center">
+    <a href="{{ url_for('events_bp.myintrests',user_id= current_user.id) }}" class="btn btn-primary ">my intrests </a>
+</div>
+
+<br>
+
+<div class="text-center">
+<h3> recomendations for <b> <i>{{current_user.username}} </i></b>  based on your intrests list {{ current_user_intrests}}</h3>
+</div>
+
+<br>
+
+
+<div class="row">
+
+
+            {% for event in recommended_events %}
+                <div class="col-4">
+                    <div class="card " style="width: 22rem ;">
+
+
+                    <div class="card-body" style="background-color:black";>
+                        <h4 class="card-title">{{ event.eventname }}</h4>
+                          <h6> category : {{ event.eventcategory }}</h6>
+                        <h6>event date: {{ event.event_date }} </h6>
+                        <h6>posted by : {{ event.user_id }} </h6>
+                        <a href="{{ url_for('events_bp.eventdescription',id=event.event_id) }}" class="btn btn-primary">MORE INFO </a>
+
+                    </div>
+                    </div>
+                </div>
+             {% endfor%}
+
+</div>
+
+        <br>
+            <div class="text-center">
+
+                    <h3> REST OF THE EVENTS </h3>
+            </div>
+
+        <br>
+
+<div class="row">
+            {% for event in rest_of_events %}
+                <div class="col-4">
+                    <div class="card " style="width: 22rem ;">
+
+
+                    <div class="card-body" style="background-color:black";>
+                        <h4 class="card-title">{{ event.eventname }}</h4>
+                          <h6> category : {{ event.eventcategory }}</h6>
+                        <h6>event date: {{ event.event_date }} </h6>
+                        <h6>posted by : {{ event.user_id }} </h6>
+                        <a href="{{ url_for('events_bp.eventdescription',id=event.event_id) }}" class="btn btn-primary">MORE INFO </a>
+
+                    </div>
+                    </div>
+                </div>
+
+                 {% endfor%}
+            <br>
+</div>
+
+{% endblock %}
+
+
+
+

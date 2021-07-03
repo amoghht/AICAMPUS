@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+FACE LOGIN
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-blue" style="color:white">
+        <div class="col-md-5 p-lg-5 mx-auto my-5">
+
+            <h3>  FACE RECOGNITION CHECK</h3>
+            <form action = "/face_recognition_check" method = "POST">
+                    <input type="submit" value="start_recognition" name="face_recognition_action" class="btn btn-success">
+                    <input type="submit" value="stop_recognition" name="face_recognition_action" class="btn btn-danger">
+            </form>
+
+
+                {% if start_face_recognition %}
+                  <img src="{{ url_for('users.recognise_faces',start_face_recognition='start_recognition') }}" >
+                  {% else %}
+                  <img src="{{ url_for('users.recognise_faces',start_face_recognition='stop_recognition') }}" >
+                {% endif %}
+
+
+            <a class="btn btn-primary" href="{{ url_for('events_bp.event_page') }}">Get Started</a>
+            <br>
+        </div>
+        <div class="product-device box-shadow d-none d-md-block"></div>
+        <div class="product-device product-device-2 box-shadow d-none d-md-block"></div>
+    </div>
+
+{% endblock %}
